@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min budgetplanerare</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1>♥ Min budgetplanerare</h1>
+        <p>Få koll på din ekonomi, en månad i taget.</p>
+    </header>
+
+    <main class="container">
+
+        <div class="month-selection">
+            <label for="selectedMonth">Välj månad:</label>
+            <input type="month" id="selectedMonth">
+        </div>
+
+        <!-- Ekonomisk översikt -->
+        <div class="summary">
+
+            <div class="card income-card">
+                <h2>Inkomster</h2>
+                <p id="income">0 kr</p>
+            </div>
+
+            <div class="card expense-card">
+                <h2>Utgifter</h2>
+                <p id="expenses">0 kr</p>
+            </div>
+
+            <div class="card remaining-card">
+                <h2>Kvar att leva på</h2>
+                <p id="remaining">0 kr</p>
+            </div>
+
+        </div>
+
+        <!-- Inkomster -->
+        <section>
+            <h2>＋ Lägg till inkomst</h2>
+
+            <form id="incomeForm">
+                <input
+                    type="text"
+                    id="incomeName"
+                    placeholder="Beskrivning, exempelvis lön"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="incomeAmount"
+                    placeholder="Belopp i kr"
+                    min="0.01"
+                    step="0.01"
+                    required
+                >
+
+                <input
+                    type="date"
+                    id="incomeDate"
+                    required
+                >
+
+                <button type="submit">Lägg till inkomst</button>
+            </form>
+
+            <div id="incomeList"></div>
+        </section>
+
+        <!-- Utgifter -->
+        <section>
+            <h2>− Lägg till utgift</h2>
+
+            <form id="expenseForm">
+
+                <input
+                    type="text"
+                    id="expenseName"
+                    placeholder="Beskrivning, exempelvis mat"
+                    required
+                >
+
+                <select id="expenseCategory">
+                    <option value="Boende">Boende</option>
+                    <option value="Mat">Mat</option>
+                    <option value="Räkningar">Räkningar</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Barn">Barn</option>
+                    <option value="Försäkringar">Försäkringar</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Nöjen">Nöjen</option>
+                    <option value="Hälsa">Hälsa</option>
+                    <option value="Övrigt">Övrigt</option>
+                </select>
+
+                <input
+                    type="number"
+                    id="expenseAmount"
+                    placeholder="Belopp i kr"
+                    min="0.01"
+                    step="0.01"
+                    required
+                >
+
+                <input
+                    type="date"
+                    id="expenseDate"
+                    required
+                >
+
+                <button type="submit">Lägg till utgift</button>
+            </form>
+
+            <div id="expenseList"></div>
+        </section>
+
+        <!-- Räkningskalender -->
+        <section>
+            <h2>▤ Räkningskalender</h2>
+            <p class="description">
+                Håll koll på dina räkningar och förfallodatum.
+            </p>
+
+            <div class="bill-summary">
+                <div>
+                    <span>Obetalda räkningar</span>
+                    <strong id="unpaidTotal">0 kr</strong>
+                </div>
+
+                <div>
+                    <span>Betalda räkningar</span>
+                    <strong id="paidTotal">0 kr</strong>
+                </div>
+            </div>
+
+            <form id="billForm">
+
+                <input
+                    type="text"
+                    id="billName"
+                    placeholder="Räkning, exempelvis hyra"
+                    required
+                >
+
+                <select id="billCategory">
+                    <option value="Boende">Boende</option>
+                    <option value="El">El</option>
+                    <option value="Telefon">Telefon</option>
+                    <option value="Internet">Internet</option>
+                    <option value="Försäkring">Försäkring</option>
+                    <option value="Övrigt">Övrigt</option>
+                </select>
+
+                <input
+                    type="number"
+                    id="billAmount"
+                    placeholder="Belopp i kr"
+                    min="0.01"
+                    step="0.01"
+                    required
+                >
+
+                <input
+                    type="date"
+                    id="billDate"
+                    required
+                >
+
+                <button type="submit">Lägg till räkning</button>
+            </form>
+
+            <div id="billList"></div>
+        </section>
+
+        <footer>
+            <p>♥ Min budgetplanerare</p>
+            <p>Dina uppgifter sparas automatiskt på den här datorn.</p>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
